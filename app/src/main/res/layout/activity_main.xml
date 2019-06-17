@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <com.lihg.library.tableview.YTableView
+        android:id="@+id/table_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:table_itemHeight="90dp"
+        app:table_columnCount="4"
+        app:table_textSize="15sp"
+        />
+</LinearLayout>

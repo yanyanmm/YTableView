@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="YTableView">
+        <attr format="reference|color" name="table_textColor"/>
+        <attr format="dimension" name="table_itemHeight"/>
+        <attr format="dimension" name="table_textSize"/>
+        <attr format="dimension" name="table_textMarginTop"/>
+        <attr format="dimension" name="table_imageWidth"/>
+        <attr format="dimension" name="table_imageHeight"/>
+        <attr format="integer" name="table_columnCount"/>
+    </declare-styleable>
+</resources>
