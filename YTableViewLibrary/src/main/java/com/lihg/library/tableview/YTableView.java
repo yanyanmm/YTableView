@@ -27,6 +27,9 @@ public class YTableView extends FrameLayout {
     //单元格控件集合
     private List<YTableItemView> mTableItemViews;
 
+    //点击事件
+    private View.OnClickListener mListener;
+
     public YTableView(Context context) {
         this(context, null);
     }
@@ -73,10 +76,22 @@ public class YTableView extends FrameLayout {
         this.addView(mContainer);
     }
 
-    private void setColumnCount(int columnCount) {
+    public void setItemHeight(int itemHeight) {
+        this.setItemHeight(itemHeight, true);
+    }
+
+    public void setItemHeight(int itemHeight, boolean isDp) {
+        mTableItemHeight = isDp ? YDesityUtil.dp2px(getContext(), itemHeight) : itemHeight;
+    }
+
+    public void setColumnCount(int columnCount) {
         if (mColumnCount != columnCount) {
             mColumnCount = columnCount < 1 ? 1 : (columnCount > 6 ? 6 : columnCount);
         }
+    }
+
+    public void setOnItemClickListener(View.OnClickListener listener) {
+        this.mListener = listener;
     }
 
     /**
@@ -97,6 +112,8 @@ public class YTableView extends FrameLayout {
                 YTableItemView tableItemView = new YTableItemView(this.getContext());
                 tableItemView.setLayoutParams(new LinearLayout.LayoutParams(0, mTableItemHeight, 1));
                 tableItemView.setTableItem(tableItem, mTableItemAttr);
+                tableItemView.setTag(tableItem.getImageResId());
+                tableItemView.setOnClickListener(mListener);
                 mTableItemViews.add(tableItemView);
             }
         }
@@ -120,6 +137,10 @@ public class YTableView extends FrameLayout {
                 }
             }
         }
+    }
+
+    public YTableItemAttr getmTableItemAttr() {
+        return mTableItemAttr;
     }
 
     public List<YTableItemView> getTableItemViews() {
