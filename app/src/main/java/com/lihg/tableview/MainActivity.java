@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         List<YTableItem> tableItems = new ArrayList<YTableItem>();
         for (int i = 0; i < 8; i++) {
-            tableItems.add(new YTableItem(R.mipmap.ic_launcher_round, "集体活动"));
+            tableItems.add(new YTableItem(i, R.mipmap.ic_launcher_round, null, 0, "集体活动"));
         }
         final YTableView tableView = findViewById(R.id.table_view);
         tableView.setTableItems(tableItems);
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 List<YTableItem> tableItems = new ArrayList<YTableItem>();
                 for (int i = 0; i < 11; i++) {
-                    tableItems.add(new YTableItem(R.mipmap.ic_launcher_round, "集体活动"));
+                    tableItems.add(new YTableItem(i, R.mipmap.ic_launcher_round, null, 0, "集体活动"));
                 }
                 tableView.setTableItems(tableItems);
             }

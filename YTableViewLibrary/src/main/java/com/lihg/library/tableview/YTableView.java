@@ -5,12 +5,17 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class YTableView extends FrameLayout {
+
+    public static interface ImageLoader {
+        void displayImage(ImageView imageView, YTableItem tableItem);
+    }
 
     //设置单元格高度
     private int mTableItemHeight;
@@ -29,6 +34,9 @@ public class YTableView extends FrameLayout {
 
     //点击事件
     private View.OnClickListener mListener;
+
+    //图片加载器
+    private ImageLoader mImageLoader;
 
     public YTableView(Context context) {
         this(context, null);
@@ -94,6 +102,10 @@ public class YTableView extends FrameLayout {
         this.mListener = listener;
     }
 
+    public void setmImageLoader(ImageLoader imageLoader) {
+        this.mImageLoader = imageLoader;
+    }
+
     /**
      * 设置表格项
      * @param tableItems
@@ -112,9 +124,12 @@ public class YTableView extends FrameLayout {
                 YTableItemView tableItemView = new YTableItemView(this.getContext());
                 tableItemView.setLayoutParams(new LinearLayout.LayoutParams(0, mTableItemHeight, 1));
                 tableItemView.setTableItem(tableItem, mTableItemAttr);
-                tableItemView.setTag(tableItem.getImageResId());
+                tableItemView.setTag(tableItem.getTag());
                 tableItemView.setOnClickListener(mListener);
                 mTableItemViews.add(tableItemView);
+                if (mImageLoader != null) {
+                    mImageLoader.displayImage(tableItemView.getImageView(), tableItem);
+                }
             }
         }
         this.layoutSubViews();

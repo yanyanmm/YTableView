@@ -30,7 +30,6 @@ public class YTableItemView extends LinearLayout {
     }
 
     public void setTableItem(YTableItem tableItem, YTableItemAttr tableItemAttr) {
-        mImageView.setImageResource(tableItem.getImageResId());
         mImageView.setLayoutParams(new LayoutParams(tableItemAttr.getImageWidth(), tableItemAttr.getImageHeight()));
         LayoutParams params = new LayoutParams(-2, -2);
         params.topMargin = tableItemAttr.getTextMarginTop();
