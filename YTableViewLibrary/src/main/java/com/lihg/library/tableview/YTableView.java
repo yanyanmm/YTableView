@@ -102,7 +102,7 @@ public class YTableView extends FrameLayout {
         this.mListener = listener;
     }
 
-    public void setmImageLoader(ImageLoader imageLoader) {
+    public void setImageLoader(ImageLoader imageLoader) {
         this.mImageLoader = imageLoader;
     }
 
