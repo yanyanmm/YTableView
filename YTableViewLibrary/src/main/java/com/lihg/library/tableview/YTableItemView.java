@@ -12,6 +12,8 @@ public class YTableItemView extends LinearLayout {
     private ImageView mImageView;
     private TextView mTextView;
 
+    private YTableItem mTableItem;
+
     public YTableItemView(Context context) {
         super(context);
         this.setOrientation(VERTICAL);
@@ -30,6 +32,7 @@ public class YTableItemView extends LinearLayout {
     }
 
     public void setTableItem(YTableItem tableItem, YTableItemAttr tableItemAttr) {
+        mTableItem = tableItem;
         if (tableItem.getImageResId() != 0) {
             mImageView.setImageResource(tableItem.getImageResId());
         }
@@ -54,5 +57,9 @@ public class YTableItemView extends LinearLayout {
 
     public TextView getTextView() {
         return mTextView;
+    }
+
+    public YTableItem getTableItem() {
+        return mTableItem;
     }
 }

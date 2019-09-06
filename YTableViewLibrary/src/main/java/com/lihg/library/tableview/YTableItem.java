@@ -3,10 +3,14 @@ package com.lihg.library.tableview;
 public class YTableItem {
 
     private int tag;
+
     private int imageResId;
     private String image;
+
     private int textResId;
     private String text;
+
+    private String extra;
 
     public YTableItem() {}
 
@@ -71,5 +75,13 @@ public class YTableItem {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getExtra() {
+        return extra;
+    }
+
+    public void setExtra(String extra) {
+        this.extra = extra;
     }
 }
